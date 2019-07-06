@@ -25,8 +25,6 @@ class CsvUploadTest extends TestCase
 
         // Assert the file was stored
         Storage::disk('local')->assertExists('temp/' . $file->hashName());
-
-        $response->assertStatus(200);
     }
 
     /**
