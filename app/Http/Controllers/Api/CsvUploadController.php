@@ -16,6 +16,6 @@ class CsvUploadController extends Controller
      */
     public function __invoke(UploadCsvFormRequest $request)
     {
-        $csvFile = $request->file('csv')->storeAs('temp', 'access-logs.csv', 'local');
+        $csvFile = $request->file('csv')->store('temp', 'local');
     }
 }

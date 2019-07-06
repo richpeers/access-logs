@@ -20,11 +20,11 @@ class CsvUploadTest extends TestCase
         Storage::fake('local');
 
         $response = $this->json('POST', '/api/access-logs/csv', [
-            'csv' => UploadedFile::fake()->create('temp/testdata.csv', '2')
+            'csv' => $file = UploadedFile::fake()->create('temp/testdata.csv', '2')
         ]);
 
         // Assert the file was stored
-        Storage::disk('local')->assertExists('temp/access-logs.csv');
+        Storage::disk('local')->assertExists('temp/' . $file->hashName());
 
         $response->assertStatus(200);
     }
