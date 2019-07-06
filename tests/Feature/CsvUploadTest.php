@@ -5,8 +5,6 @@ namespace Tests\Feature;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CsvUploadTest extends TestCase
 {
@@ -19,7 +17,7 @@ class CsvUploadTest extends TestCase
     {
         Storage::fake('local');
 
-        $response = $this->json('POST', '/api/access-logs/csv', [
+        $this->json('POST', '/api/access-logs/csv', [
             'csv' => $file = UploadedFile::fake()->create('temp/testdata.csv', '2')
         ]);
 
@@ -40,8 +38,8 @@ class CsvUploadTest extends TestCase
         // assert validation fails
         $response->assertStatus(422);
 
-        $response->assertJsonFragment([
-            'csv' => ['The csv field is required.']
+        $response->assertJsonValidationErrors([
+            'csv' => 'The csv field is required.'
         ]);
     }
 
@@ -60,8 +58,8 @@ class CsvUploadTest extends TestCase
         // assert validation fails
         $response->assertStatus(422);
 
-        $response->assertJsonFragment([
-            'csv' => ['The csv must be a file.']
+        $response->assertJsonValidationErrors([
+            'csv' => 'The csv must be a file.'
         ]);
     }
 
@@ -79,8 +77,8 @@ class CsvUploadTest extends TestCase
         // assert validation fails
         $response->assertStatus(422);
 
-        $response->assertJsonFragment([
-            'csv' => ['The csv must be a file of type: csv, txt.']
+        $response->assertJsonValidationErrors([
+            'csv' => 'The csv must be a file of type: csv, txt.'
         ]);
     }
 
@@ -98,8 +96,8 @@ class CsvUploadTest extends TestCase
         // assert validation fails
         $response->assertStatus(422);
 
-        $response->assertJsonFragment([
-            'csv' => ['The csv may not be greater than 5000 kilobytes.']
+        $response->assertJsonValidationErrors([
+            'csv' => 'The csv may not be greater than 5000 kilobytes.'
         ]);
     }
 }
