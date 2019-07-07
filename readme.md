@@ -1,8 +1,8 @@
 # Access Logs
 
-Exercise in parsing CSV and displaying a paginated datatable, with filters and ordering.
+Exercise in parsing CSV with PHP and displaying a paginated datatable. With filters and ordering.
 
-Pagination and filters when applied, query the data using ajax to return json formatted response.
+Pagination and filters, when applied, query the data via ajax for json response.
 
 Demo [https://access-logs.richpeers.co.uk]
 
