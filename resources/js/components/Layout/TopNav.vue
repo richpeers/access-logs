@@ -5,7 +5,7 @@
                 <a class="navbar-brand" href="#">Access Logs</a>
 
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="https://github.com/richpeers" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+                    <a class="nav-item nav-link" href="https://github.com/richpeers/access-logs" target="_blank"><i class="fab fa-github fa-2x"></i></a>
                     <a class="nav-item nav-link" href="https://www.linkedin.com/in/richpeers" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
                 </div>
 
