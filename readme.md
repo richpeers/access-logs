@@ -1,6 +1,6 @@
 # Access Logs
 
-Excercise in parsing CSV and displaying a paginated datatable, with filters.
+Excercise in parsing CSV and displaying a paginated datatable, with filters and ordering.
 
 Pagination and filters when applied, query the data using ajax to return json formatted response.
 
