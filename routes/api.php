@@ -13,8 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/csv-import', 'Api\CsvImportController');
 
-Route::post('/access-logs/csv', 'Api\CsvUploadController');
+Route::get('/access-logs', 'Api\AccessLogsController');

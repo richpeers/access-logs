@@ -1,0 +1,73 @@
+.filters-side-bar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 300px;
+  background-color: #dee2e6;
+  left: 0;
+  padding: 4.7em 1.6em 1.6em 1.6em;
+  &.filters-closed {
+    left: -300px;
+  }
+  .close-filter-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5.9em;
+    right: 1.4em;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: #dee2e6;
+    }
+  }
+
+  h3 {
+    margin: 0 0 1em 0;
+    padding: 0.7em 0;
+    color: $primary;
+    font-weight: bold;
+  }
+
+  .form-group {
+    label {
+      color: $primary;
+    }
+
+    .input-group-addon {
+      width: 2em;
+      text-align: center;
+      padding-top: 0.5em;
+      color: $primary;
+    }
+  }
+  .btn-outline-primary:not(:hover) {
+    background-color: white;
+    border-color: white;
+  }
+}
+
+.open-side-bar {
+
+  margin: 0 0 1em 0;
+  padding: 0;
+  font-size: 1.75em;
+  font-weight: bold;
+  align-items: center;
+
+  position: absolute;
+  top: 3.2em;
+  left: 0.91em;
+  width: 140px;
+  height: 2em;
+  background-color: transparent;
+  color: $primary;
+  cursor: pointer;
+}

@@ -9,11 +9,11 @@ use Tests\TestCase;
 class CsvUploadTest extends TestCase
 {
     /**
-     * test uploaded csv is saved to temp folder.
+     * test uploaded csv is saved.
      *
      * @return void
      */
-    public function testUploadedCsvIsSavedToTempFolder()
+    public function testUploadedCsvIsSaved()
     {
         Storage::fake('local');
 

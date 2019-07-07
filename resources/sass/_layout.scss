@@ -1,0 +1,52 @@
+.access-logs {
+  height: 100%;
+  padding-top: 5.2em;
+
+  th a {
+    text-decoration: none;
+
+    i {
+      visibility: hidden;
+    }
+
+    &.active, &:hover {
+      i {
+        visibility: visible;
+      }
+    }
+  }
+
+  .applied-filters {
+    height: 4em;
+    padding: 0.7em 0;
+
+    .filter {
+      color: #333;
+      background-color: #fff;
+      display: inline-block;
+      font-weight: normal;
+      text-align: center;
+      vertical-align: middle;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.6;
+      border-radius: 8px;
+      user-select: none;
+      text-transform: capitalize;
+      margin: 0 15px 0 0;
+
+      i:hover {
+        color: $danger;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .pagination {
+    margin-top: 1.5em;
+    padding-left: 0.1em;
+  }
+}
+
