@@ -1,6 +1,6 @@
 <template>
     <tr>
-        <th>{{value.ip}}</th>
+        <td>{{value.ip}}</td>
         <td :class="responseType">{{value.response_type}}</td>
         <td>{{value.response_time}}</td>
         <td>{{value.country_of_origin}}</td>
