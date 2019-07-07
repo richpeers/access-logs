@@ -1,15 +1,15 @@
 # Access Logs
 
-Exercise in parsing a CSV file with PHP and displaying a paginated datatable. With filters and ordering.
+Exercise in parsing a CSV file with PHP and displaying a paginated data table. With filters and ordering.
 
-Pagination and filters, when applied, query the data via ajax for json response.
+Pagination and filters request the data via ajax for a JSON response.
 
 Demo [https://access-logs.richpeers.co.uk]
 
-[Download .csv with specified columns](https://access-logs.richpeers.co.uk/testdata.csv)
+[Download CSV with specified columns](https://access-logs.richpeers.co.uk/testdata.csv)
 
 ### CSV Import Service Class
-Automatically detects the encoding of the csv and converts it to UTF-8 for import.
+Automatically detects the encoding of the CSV and converts it to UTF-8 for import.
 
 Usage:
 ```
@@ -32,7 +32,7 @@ Usage:
 ### Pagination and filters
 Filters extend abstract filter classes and build the query.
 
-Passed to pagination and returned via a transformer to format and return the json.
+Passed to pagination and returned via a transformer to format and return JSON.
 ```
     public function __invoke(Request $request, AccessLog $accessLog)
     {
