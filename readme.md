@@ -30,9 +30,9 @@ Usage:
 ```
 
 ### Pagination and filters
-Filters extend abstract classes to query the filtered data.
+Filters extend abstract filter classes and build the query.
 
-Passed to pagination and returned via a transformer to format and return the json. 
+Passed to pagination and returned via a transformer to format and return the json.
 ```
     public function __invoke(Request $request, AccessLog $accessLog)
     {
