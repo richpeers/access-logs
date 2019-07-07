@@ -1,6 +1,6 @@
 # Access Logs
 
-Exercise in parsing CSV with PHP and displaying a paginated datatable. With filters and ordering.
+Exercise in parsing a CSV file with PHP and displaying a paginated datatable. With filters and ordering.
 
 Pagination and filters, when applied, query the data via ajax for json response.
 
