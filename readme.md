@@ -12,7 +12,6 @@ Demo [https://access-logs.richpeers.co.uk]
 Automatically detects the encoding of the csv and converts it to UTF-8 for import.
 
 Usage:
-
 ```
     public function __invoke(CsvImportFormRequest $request, CsvImport $csv)
     {
@@ -31,7 +30,9 @@ Usage:
 ```
 
 ### Pagination and filters
-Filters extend abstract classes to query the filtered data. Passed to pagination and returned via a transformer to format and return the json. 
+Filters extend abstract classes to query the filtered data.
+
+Passed to pagination and returned via a transformer to format and return the json. 
 ```
     public function __invoke(Request $request, AccessLog $accessLog)
     {
