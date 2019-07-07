@@ -8,7 +8,7 @@ Demo [https://access-logs.richpeers.co.uk]
 
 [Download .csv with specified columns](https://access-logs.richpeers.co.uk/testdata.csv)
 
-#### CSV Import Service Class
+### CSV Import Service Class
 Automatically detects the encoding of the csv and converts it to UTF-8 for import.
 
 ```
@@ -28,7 +28,7 @@ Automatically detects the encoding of the csv and converts it to UTF-8 for impor
     }
 ```
 
-#### Pagination and filters
+### Pagination and filters
 Pagination and filters call classes extending abstract filter classes, and passed through a transformer AccessLogResource to format and return the json. 
 ```
 public function __invoke(Request $request, AccessLog $accessLog)
