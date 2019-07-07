@@ -36,8 +36,8 @@ Passed to pagination and returned via a transformer to format and return JSON.
 ```
     public function __invoke(Request $request, AccessLog $accessLog)
     {
-        $accessLogs = $accessLog->filter($request)->paginate(10);
+        $logs = $accessLog->filter($request)->paginate(10);
 
-        return AccessLogResource::collection($accessLogs);
+        return AccessLogResource::collection($logs);
     }
 ```
