@@ -20,7 +20,7 @@ class CsvImportController extends Controller
     {
         $filePath = $request->file('csv')->getPathName();
 
-        $csv->setDelimiter("\t")
+        $data = $csv->setDelimiter("\t")
             ->import($filePath)
             ->store(AccessLog::class, [
                 'IP' => 'ip',
@@ -29,5 +29,9 @@ class CsvImportController extends Controller
                 'Country Of Origin' => 'country_of_origin',
                 'Path' => 'path'
             ]);
+
+        return response()->json([
+            'count' => count($data)
+        ], 200);
     }
 }

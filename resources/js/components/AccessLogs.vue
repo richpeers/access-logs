@@ -15,46 +15,58 @@
             Filters
         </div>
 
-        <div class="container">
+        <div class="scroll">
+            <div class="container">
 
-            <div class="applied-filters">
+                <div class="applied-filters">
                     <span v-for="(value, filter) in appliedFilters" class="filter">
                         {{filterDisplayRef[filter]}} <i class="fa fa-times-circle" aria-hidden="true" @click.prevent="clearFilter(filter)"></i>
                     </span>
+                    <span v-if="data.hasOwnProperty('meta')" class="totals">
+                    Showing {{data.data.length}} of <strong>{{totalCount}}</strong>
+                </span>
+                </div>
+
+                <table class="table table-hover">
+                    <thead class="bg-light-grey">
+                    <tr>
+                        <th scope="col">
+                            <order-by title="IP" value="ip" :ordered-by="orderedBy" :order="order" @order-by="orderBy"></order-by>
+                        </th>
+                        <th scope="col">
+                            <order-by title="Response Type" value="response_type" :ordered-by="orderedBy" :order="order" @order-by="orderBy"></order-by>
+                        </th>
+                        <th scope="col">
+                            <order-by title="Response Time" value="response_time" :ordered-by="orderedBy" :order="order" @order-by="orderBy"></order-by>
+                        </th>
+                        <th scope="col">
+                            <order-by title="Country Of Origin" value="country_of_origin" :ordered-by="orderedBy" :order="order" @order-by="orderBy"></order-by>
+                        </th>
+                        <th scope="col">
+                            <order-by title="Path" value="path" :ordered-by="orderedBy" :order="order" @order-by="orderBy"></order-by>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <table-row
+                            v-for="(value, index) in data.data"
+                            :value="value"
+                            :key="'row-' + index"
+                    ></table-row>
+                    </tbody>
+                </table>
+
+                <pagination :data="data" :limit="3" @pagination-change-page="getPaginationPage"></pagination>
+
+                <country-requests
+                        v-if="ready"
+                        :data="data.data"
+                        :total-count="totalCount"
+                ></country-requests>
+
             </div>
-
-            <table class="table table-hover">
-                <thead class="bg-light-grey">
-                <tr>
-                    <th scope="col">
-                        <order-by title="IP" value="ip" :ordered-by="orderedBy" :order="order" @order-by="orderBy"></order-by>
-                    </th>
-                    <th scope="col">
-                        <order-by title="Response Type" value="response_type" :ordered-by="orderedBy" :order="order" @order-by="orderBy"></order-by>
-                    </th>
-                    <th scope="col">
-                        <order-by title="Response Time" value="response_time" :ordered-by="orderedBy" :order="order" @order-by="orderBy"></order-by>
-                    </th>
-                    <th scope="col">
-                        <order-by title="Country Of Origin" value="country_of_origin" :ordered-by="orderedBy" :order="order" @order-by="orderBy"></order-by>
-                    </th>
-                    <th scope="col">
-                        <order-by title="Path" value="path" :ordered-by="orderedBy" :order="order" @order-by="orderBy"></order-by>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <table-row
-                        v-for="(value, index) in data.data"
-                        :value="value"
-                        :key="'row-' + index"
-                ></table-row>
-                </tbody>
-            </table>
-
-            <pagination :data="data" :limit="3" @pagination-change-page="getPaginationPage"></pagination>
-
         </div>
+
 
         <upload-csv-modal
                 v-if="uploadCsvModal.show"
@@ -72,20 +84,24 @@
     import TableRow from "./TableRow";
     import Filters from "./Filters/Filters";
     import FiltersSideBar from "./FiltersSideBar";
+    import CountryRequests from "./CountryRequests";
+
 
     export default {
         name: "AccessLogs",
         extends: Filters,
         components: {
+            CountryRequests,
             FiltersSideBar,
             TableRow,
             UploadCsvModal,
             TopNav
         },
         props: {
-            value: Array
+            total: Number
         },
         data: () => ({
+            totalCount: 0,
             uploadCsvModal: {
                 show: false
             },
@@ -110,10 +126,14 @@
                     'country_of_origin': this.appliedFilters.country_of_origin,
                     'path': this.appliedFilters.path
                 }
+            },
+            ready() {
+                return typeof this.data.data !== 'undefined'
             }
         },
         methods: {
-            uploadSuccess() {
+            uploadSuccess(total) {
+                this.totalCount = total;
                 this.uploadCsvModal.show = false;
                 window.Swal.fire({
                     type: 'success',
@@ -130,7 +150,11 @@
             },
             closeFilters() {
                 this.showFilters = false;
-            }
+            },
+
+        },
+        mounted() {
+            this.totalCount = this.total;
         }
     }
 </script>

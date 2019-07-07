@@ -15,6 +15,8 @@ class AccessLogsController extends Controller
      */
     public function __invoke(Request $request, AccessLog $accessLog)
     {
-        return view('index');
+        $total = $accessLog->count();
+
+        return view('index', compact('total'));
     }
 }

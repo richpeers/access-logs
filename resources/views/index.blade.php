@@ -23,7 +23,7 @@
 </head>
 <body>
 <div id="app">
-    <access-logs></access-logs>
+    <access-logs :total="{{$total}}"></access-logs>
 </div>
 </body>
 </html>
