@@ -29,7 +29,7 @@ Usage:
     }
 ```
 
-### Pagination and filters
+### Pagination and Filters
 Filters extend abstract filter classes and build the query.
 
 Passed to pagination and returned via a transformer to format and return JSON.
