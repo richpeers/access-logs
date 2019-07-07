@@ -125,6 +125,7 @@
             },
             applyFilters() {
                 this.showFilters = false;
+                this.page = 1;
                 this.fetchData();
             },
             closeFilters() {
