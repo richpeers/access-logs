@@ -2,7 +2,7 @@
 
 Exercise in parsing a CSV file with PHP and displaying a paginated data table. With filters and ordering.
 
-Pagination and filters request the data via ajax for a JSON response.
+Pagination and filters request the data via AJAX for a JSON response.
 
 Demo [https://access-logs.richpeers.co.uk]
 
