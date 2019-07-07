@@ -8,7 +8,7 @@ Demo [https://access-logs.richpeers.co.uk]
 
 [Download CSV with specified columns](https://access-logs.richpeers.co.uk/testdata.csv)
 
-### CSV Import Service Class
+### CsvImport Service Class
 Automatically detects the encoding of the CSV and converts it to UTF-8 for import.
 
 Usage:
