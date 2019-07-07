@@ -4,7 +4,7 @@
         <form role="form" method="POST" action="/api/csv-import" @submit.prevent="onSubmit">
 
             <div class="modal-header">
-                <h3 class="modal-title">Upload CSV</h3>
+                <h3 class="modal-title">Import CSV</h3>
             </div>
 
             <div class="modal-body">

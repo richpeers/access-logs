@@ -11,7 +11,7 @@
 
                 <div class="navbar-nav ml-auto">
                     <div class="nav-item">
-                        <button class="btn btn-secondary font-weight-bold" type="button" @click="uploadCsv">Upload CSV</button>
+                        <button class="btn btn-secondary font-weight-bold" type="button" @click="uploadCsv">Import CSV</button>
                     </div>
                 </div>
             </div>
