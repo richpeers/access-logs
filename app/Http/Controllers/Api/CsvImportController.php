@@ -20,7 +20,8 @@ class CsvImportController extends Controller
     {
         $filePath = $request->file('csv')->getPathName();
 
-        $csv->setDelimiter("\t")->import($filePath)
+        $csv->setDelimiter("\t")
+            ->import($filePath)
             ->store(AccessLog::class, [
                 'IP' => 'ip',
                 'Response Type' => 'response_type',

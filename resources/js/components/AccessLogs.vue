@@ -6,7 +6,7 @@
         <filters-side-bar
                 :show="showFilters"
                 v-model="filters"
-                @apply="fetchData"
+                @apply="applyFilters"
                 @clear-filters="clearAllFilters"
                 @close="closeFilters"
         ></filters-side-bar>
@@ -98,7 +98,7 @@
                 'country_of_origin': '',
                 'path': ''
             },
-            showFilters: true
+            showFilters: false
         }),
         computed: {
             filterDisplayRef() {
@@ -120,7 +120,12 @@
                     title: 'CSV Successfully imported',
                     text: 'Existing logs have been replaced'
                 });
-                this.fetchLogs();
+                this.clearAllFilters();
+                this.fetchData();
+            },
+            applyFilters() {
+                this.showFilters = false;
+                this.fetchData();
             },
             closeFilters() {
                 this.showFilters = false;
