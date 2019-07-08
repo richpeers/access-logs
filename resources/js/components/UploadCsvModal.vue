@@ -65,7 +65,7 @@
                 this.form.post('/api/csv-import')
                     .then(response => {
                         this.uploading = false;
-                        this.$emit('success', response.data.count);
+                        this.$emit('success', response.count);
                     });
             }
         }
