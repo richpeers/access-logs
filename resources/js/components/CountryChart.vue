@@ -19,9 +19,9 @@
         },
         data: () => ({
             options: {
-                // legend: {
-                //     display: false
-                // },
+                legend: {
+                    display: false
+                },
             },
             colourSet: [
                 '#165c7d',
@@ -75,6 +75,6 @@
 <style>
     .small {
         max-width: 70%;
-        margin: 0 auto;
+        margin: 3em auto 0 auto;
     }
 </style>

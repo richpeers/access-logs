@@ -58,6 +58,12 @@ html, body, #app {
     float: right;
     padding-top: 0.5em;
   }
+
+  .dot {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+  }
 }
 
 .scroll {
