@@ -10,9 +10,7 @@
                 </div>
 
                 <div class="navbar-nav ml-auto">
-                    <div class="nav-item">
-                        <a class="nav-item nav-link" href="/testdata.csv" download>Download CSV</a>
-                    </div>
+                    <a class="nav-item nav-link" href="/testdata.csv" download>Download CSV</a>
                     <div class="nav-item">
                         <button class="btn btn-secondary font-weight-bold" type="button" @click="uploadCsv">Import CSV</button>
                     </div>
